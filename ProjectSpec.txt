@@ -1,0 +1,166 @@
+DOS AMIGOS — WEBSITE ARCHITECTURE & BUILD OUTLINE
+
+1. Global Architecture (Applies to All Pages)
+	•	Responsive-first (mobile dominates restaurant traffic)
+	•	High-contrast color system (Dos Amigos palette: green/red/yellow, textured background)
+	•	Persistent sticky header with:
+	•	Logo (click → Home)
+	•	Menu
+	•	Order Online
+	•	Location
+	•	Hours
+	•	Sticky bottom action bar (mobile only):
+	•	Call
+	•	Directions
+	•	Order Online
+
+⸻
+
+PAGE 1 — HOME (Conversion-Focused Landing)
+
+Hero Section
+	•	Full-width branded background
+	•	Dos Amigos logo centered
+	•	Subtitle: Mexican Food and Cantina
+	•	Address: 135 Main St., Pittsfield, ME 04967
+	•	Two primary buttons:
+	•	View Menu
+	•	Order Online
+
+“What We Serve” Visual Strip
+	•	Horizontal image tiles (tacos / burritos / chimichangas)
+	•	Each tile links directly to Menu anchor
+	•	No text walls — visual-first
+
+Signature Items Highlight
+	•	4–6 featured items pulled from menu
+	•	Name + price only (no descriptions)
+	•	Designed to scan fast
+
+Local Credibility Block
+	•	“Proudly Serving Pittsfield, Maine”
+	•	Map preview (Google Maps embed)
+	•	Distance-to-you auto-detection (optional enhancement)
+
+CTA Section
+	•	Bold banner:
+	•	“Dine In • Take Out • Delivery”
+	•	Buttons:
+	•	Call Now
+	•	Order Online
+
+⸻
+
+PAGE 2 — MENU (Core Revenue Page)
+
+Menu Structure
+	•	Two-page menu mirrors printed menu exactly
+	•	Same item numbers
+	•	Same prices
+	•	Same sections
+
+Digital Menu Behavior
+	•	Section anchors:
+	•	Á La Carte
+	•	Appetizers
+	•	Side Dishes
+	•	Mobile:
+	•	Accordion sections (fast scroll)
+	•	Desktop:
+	•	Two-column layout matching print
+
+Compliance Footer
+	•	“No substitutions. Prices subject to change.”
+	•	Allergen disclaimer (small, bottom)
+
+⸻
+
+PAGE 3 — ORDER ONLINE
+
+Platform Routing Logic
+	•	Detect availability:
+	•	Uber Eats
+	•	DoorDash
+	•	In-house (future-ready)
+	•	If multiple:
+	•	Let user choose platform
+	•	If single:
+	•	Auto-redirect
+
+Trust Indicators
+	•	Platform logos
+	•	“Order direct when available” note (future margin protection)
+
+⸻
+
+PAGE 4 — LOCATION & HOURS
+
+Location Section
+	•	Large embedded map
+	•	One-click:
+	•	Directions
+	•	Call
+	•	Address shown prominently
+
+Hours Module
+	•	Structured hours table
+	•	Holiday override logic (admin-controlled)
+
+Parking / Access Notes
+	•	Simple bullet list
+	•	Reduces friction before visit
+
+⸻
+
+PAGE 5 — ABOUT DOS AMIGOS (Short, Authentic)
+
+Story Block
+	•	2–3 short paragraphs
+	•	Focus on:
+	•	Local ownership
+	•	Consistency
+	•	Value
+	•	No marketing buzzwords
+
+Visual Support
+	•	Restaurant interior
+	•	Food prep
+	•	Team (optional)
+
+⸻
+
+PAGE 6 — CONTACT (Minimal, Functional)
+
+Contact Options
+	•	Phone (primary)
+	•	Address (secondary)
+	•	No long forms
+
+Optional Simple Form
+	•	Name
+	•	Email
+	•	Message
+	•	Spam-protected
+	•	Routed to email
+
+⸻
+
+ADMIN / BACKEND REQUIREMENTS (FOR CODERS)
+
+Content Controls
+	•	Menu price toggle (quick updates)
+	•	Hours override
+	•	Platform links (order services)
+
+Performance
+	•	Image lazy-loading
+	•	CDN-ready
+	•	Sub-2s mobile load target
+
+SEO (Local-Focused)
+	•	Schema:
+	•	Restaurant
+	•	Menu
+	•	Location
+	•	Pittsfield + Mexican food keywords
+	•	Google Business Profile integration
