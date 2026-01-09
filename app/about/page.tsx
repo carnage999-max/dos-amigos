@@ -153,9 +153,9 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end justify-center pb-8">
                   <div className="text-center text-white">
                     <div className="font-[family-name:var(--font-display)] text-6xl mb-2">
-                      2015
+                      2026
                     </div>
-                    <p className="text-xl font-bold">Serving Since</p>
+                    <p className="text-xl font-bold">Opening Soon</p>
                   </div>
                 </div>
               </div>

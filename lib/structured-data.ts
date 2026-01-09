@@ -75,7 +75,7 @@ export function getMenuSchema() {
       {
         "@type": "MenuSection",
         name: "Side Dishes",
-        hasMenuItem: menuData.sideDishes.map((item) => ({
+        hasMenuItem: menuData.sideDishes.map((item: any) => ({
           "@type": "MenuItem",
           name: item.name,
           description: item.description || "",

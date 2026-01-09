@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Image as ImageIcon } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { menuData } from "@/lib/config";
 import { SlantedDivider, TextureDivider } from "@/components/SectionDivider";
@@ -12,7 +12,6 @@ import { getMenuSchema } from "@/lib/structured-data";
 export default function MenuPage() {
   const menuSchema = getMenuSchema();
   const [openSection, setOpenSection] = useState<string | null>("aLaCarte");
-  const [showMenuImage, setShowMenuImage] = useState(false);
 
   const sections = [
     { id: "aLaCarte", title: "Á La Carte", items: menuData.aLaCarte },
@@ -60,45 +59,38 @@ export default function MenuPage() {
 
       <SlantedDivider direction="right" color="cream" />
 
-      {/* View Full Menu Image Section */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+      {/* Full Menu Image Section */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-6"
+          className="text-center mb-8"
         >
-          <button
-            onClick={() => setShowMenuImage(!showMenuImage)}
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#1a8754] to-[#0f5c38] text-white font-bold text-lg rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
-          >
-            <ImageIcon className="w-6 h-6 group-hover:scale-110 transition-transform" />
-            {showMenuImage ? "Hide Full Menu" : "View Full Menu Image"}
-          </button>
+          <h2 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl text-verde mb-4">
+            FULL MENU
+          </h2>
+          <p className="text-brown/70 text-lg">
+            View our complete menu selection
+          </p>
         </motion.div>
 
-        <AnimatePresence>
-          {showMenuImage && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.5 }}
-              className="overflow-hidden"
-            >
-              <div className="bg-white rounded-3xl shadow-2xl p-4 sm:p-6">
-                <div className="relative w-full" style={{ aspectRatio: '2/3' }}>
-                  <Image
-                    src="/menu.png"
-                    alt="Dos Amigos Full Menu"
-                    fill
-                    className="object-contain rounded-2xl"
-                    priority
-                  />
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          <div className="bg-white rounded-3xl shadow-2xl p-4 sm:p-6">
+            <div className="relative w-full" style={{ aspectRatio: '2/3' }}>
+              <Image
+                src="/menu.png"
+                alt="Dos Amigos Full Menu"
+                fill
+                className="object-contain rounded-2xl"
+                priority
+              />
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       <TextureDivider />

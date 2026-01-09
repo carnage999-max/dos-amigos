@@ -6,12 +6,18 @@ import { ExternalLink, Check, ShoppingBag } from "lucide-react";
 import { restaurantInfo } from "@/lib/config";
 import { CurvedDivider } from "@/components/SectionDivider";
 
+interface OrderPlatform {
+  name: string;
+  url: string;
+  available: boolean;
+}
+
 export default function OrderPage() {
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null);
 
   const availablePlatforms = Object.entries(restaurantInfo.orderPlatforms)
-    .filter(([_, platform]) => platform.available)
-    .map(([key, platform]) => ({ key, ...platform }));
+    .filter(([_, platform]) => (platform as OrderPlatform).available)
+    .map(([key, platform]) => ({ key, ...(platform as OrderPlatform) }));
 
   // Auto-redirect if only one platform available
   useEffect(() => {

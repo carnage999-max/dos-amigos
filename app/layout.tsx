@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Bebas_Neue } from "next/font/google";
+import { Inter, Bebas_Neue, Caveat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import FloatingMobileNav from "@/components/FloatingMobileNav";
 import Footer from "@/components/Footer";
+import LoadingAnimation from "@/components/LoadingAnimation";
+import ComingSoonBanner from "@/components/ComingSoonBanner";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -14,6 +16,12 @@ const inter = Inter({
 const bebas = Bebas_Neue({
   variable: "--font-display",
   weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  variable: "--font-handwritten",
   subsets: ["latin"],
   display: "swap",
 });
@@ -37,8 +45,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${bebas.variable}`}>
+    <html lang="en" className={`${inter.variable} ${bebas.variable} ${caveat.variable}`}>
       <body className="antialiased">
+        <LoadingAnimation />
+        <ComingSoonBanner />
         <Header />
         {children}
         <Footer />

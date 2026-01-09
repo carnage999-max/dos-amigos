@@ -40,7 +40,7 @@ export const restaurantInfo = {
   },
 
   story: [
-    "Dos Amigos has been serving authentic Mexican cuisine to Pittsfield and the surrounding communities since 2015. We're a family-owned restaurant committed to quality, consistency, and value.",
+    "Dos Amigos is bringing authentic Mexican cuisine to Pittsfield and the surrounding communities. We're a family-owned restaurant committed to quality, consistency, and value.",
     "Our recipes honor traditional Mexican cooking methods while using fresh, locally-sourced ingredients whenever possible. From our hand-pressed tortillas to our slow-cooked carnitas, every dish is prepared with care.",
     "Whether you're dining in, taking out, or having us deliver, we treat every meal like we're serving our own family. That's the Dos Amigos difference.",
   ],
