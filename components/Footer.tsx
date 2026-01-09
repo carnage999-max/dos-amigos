@@ -29,7 +29,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-sm text-cream/80 text-center md:text-left">
-              Authentic Mexican cuisine in Pittsfield, Maine since 2015.
+              Bringing authentic Mexican cuisine to Pittsfield, Maine. Opening 2026.
             </p>
           </div>
 
