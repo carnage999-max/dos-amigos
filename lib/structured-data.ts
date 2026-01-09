@@ -38,13 +38,6 @@ export function getRestaurantSchema() {
 }
 
 export function getMenuSchema() {
-  const allItems = [
-    ...menuData.aLaCarte,
-    ...menuData.appetizers,
-    ...menuData.entrees,
-    ...menuData.sides,
-  ];
-
   return {
     "@context": "https://schema.org",
     "@type": "Menu",
@@ -81,8 +74,8 @@ export function getMenuSchema() {
       },
       {
         "@type": "MenuSection",
-        name: "Entrées",
-        hasMenuItem: menuData.entrees.map((item) => ({
+        name: "Side Dishes",
+        hasMenuItem: menuData.sideDishes.map((item) => ({
           "@type": "MenuItem",
           name: item.name,
           description: item.description || "",
@@ -95,8 +88,8 @@ export function getMenuSchema() {
       },
       {
         "@type": "MenuSection",
-        name: "Side Dishes",
-        hasMenuItem: menuData.sides.map((item: any) => ({
+        name: "Extra & Desserts",
+        hasMenuItem: menuData.extraAndDesserts.map((item) => ({
           "@type": "MenuItem",
           name: item.name,
           description: item.description || "",

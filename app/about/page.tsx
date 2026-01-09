@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Heart, Users, Award } from "lucide-react";
 import { restaurantInfo } from "@/lib/config";
 import { CurvedDivider, SlantedDivider } from "@/components/SectionDivider";
@@ -140,23 +141,21 @@ export default function AboutPage() {
             className="relative"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              {/* Abstract Visual */}
+              {/* Restaurant Photo */}
               <div className="relative h-80 md:h-96 rounded-3xl overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#dc2626] via-[#fbbf24] to-[#1a8754]">
-                  <div
-                    className="absolute inset-0 opacity-30"
-                    style={{
-                      backgroundImage: `radial-gradient(circle at 30% 50%, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.3) 41%, transparent 41%),
-                        radial-gradient(circle at 70% 50%, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.3) 41%, transparent 41%)`,
-                    }}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-white">
-                      <div className="font-[family-name:var(--font-display)] text-8xl opacity-20 mb-4">
-                        2015
-                      </div>
-                      <p className="text-2xl font-bold">Serving Since</p>
+                <Image
+                  src="/restaurant-day.png"
+                  alt="Dos Amigos Restaurant - Day"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end justify-center pb-8">
+                  <div className="text-center text-white">
+                    <div className="font-[family-name:var(--font-display)] text-6xl mb-2">
+                      2015
                     </div>
+                    <p className="text-xl font-bold">Serving Since</p>
                   </div>
                 </div>
               </div>
