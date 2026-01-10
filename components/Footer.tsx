@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Instagram } from "lucide-react";
 import { restaurantInfo } from "@/lib/config";
 
 export default function Footer() {
@@ -95,8 +95,102 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Social Media & Delivery */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 pb-8 border-b border-cream/20">
+          {/* Social Media */}
+          <div className="text-center md:text-left">
+            <h4 className="font-bold text-lg mb-4 text-amarillo">Follow Us</h4>
+            <p className="text-sm text-cream/70 mb-4">Stay updated with special offers and news</p>
+            <div className="flex gap-4 justify-center md:justify-start">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-cream/10 hover:bg-amarillo flex items-center justify-center transition-all duration-300 hover:scale-110"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-cream/10 hover:bg-amarillo flex items-center justify-center transition-all duration-300 hover:scale-110"
+                aria-label="X (Twitter)"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-cream/10 hover:bg-amarillo flex items-center justify-center transition-all duration-300 hover:scale-110"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://mylibertysocial.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all duration-300 hover:scale-110"
+                aria-label="Liberty Social"
+              >
+                <div className="relative w-10 h-10">
+                  <Image
+                    src="/liberty-social.jpeg"
+                    alt="Liberty Social"
+                    fill
+                    className="object-cover rounded-full"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* Delivery Platforms */}
+          <div className="text-center md:text-left">
+            <h4 className="font-bold text-lg mb-4 text-amarillo">Delivery Available!</h4>
+            <p className="text-sm text-cream/70 mb-4">Order through your favorite platform</p>
+            <div className="flex gap-4 justify-center md:justify-start flex-wrap items-center">
+              <a
+                href="https://www.doordash.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-12 px-4 rounded-lg bg-white hover:bg-amarillo transition-all duration-300 hover:scale-105 flex items-center"
+              >
+                <div className="relative w-24 h-8">
+                  <Image
+                    src="/DoorDash_Logo.svg"
+                    alt="DoorDash"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </a>
+              <a
+                href="https://www.ubereats.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-12 px-4 rounded-lg bg-white hover:bg-amarillo transition-all duration-300 hover:scale-105 flex items-center"
+              >
+                <div className="relative w-24 h-8">
+                  <Image
+                    src="/UberEATS_logo.svg"
+                    alt="Uber Eats"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* Divider */}
-        <div className="border-t border-cream/20 pt-6">
+        <div className="pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-cream/60">
               © {currentYear} Dos Amigos. All rights reserved.

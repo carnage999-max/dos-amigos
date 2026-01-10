@@ -22,16 +22,18 @@ export const restaurantInfo = {
   },
 
   orderPlatforms: {
-    // uberEats: {
-    //   name: "Uber Eats",
-    //   url: "https://www.ubereats.com",
-    //   available: true,
-    // },
-    // doorDash: {
-    //   name: "DoorDash",
-    //   url: "https://www.doordash.com",
-    //   available: true,
-    // },
+    uberEats: {
+      name: "Uber Eats",
+      url: "https://www.ubereats.com",
+      available: true,
+      logo: "/UberEATS_logo.svg",
+    },
+    doorDash: {
+      name: "DoorDash",
+      url: "https://www.doordash.com",
+      available: true,
+      logo: "/DoorDash_Logo.svg",
+    },
     // inHouse: {
     //   name: "Direct Order",
     //   url: "/order/direct",

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ExternalLink, Check, ShoppingBag } from "lucide-react";
 import { restaurantInfo } from "@/lib/config";
 import { CurvedDivider } from "@/components/SectionDivider";
@@ -10,6 +11,7 @@ interface OrderPlatform {
   name: string;
   url: string;
   available: boolean;
+  logo?: string;
 }
 
 export default function OrderPage() {
@@ -115,9 +117,20 @@ export default function OrderPage() {
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex-1">
-                    <h3 className="font-[family-name:var(--font-display)] text-4xl text-[#78350f] mb-2 group-hover:text-[#1a8754] transition-colors">
-                      {platform.name}
-                    </h3>
+                    {platform.logo ? (
+                      <div className="relative h-16 mb-4">
+                        <Image
+                          src={platform.logo}
+                          alt={platform.name}
+                          fill
+                          className="object-contain object-left"
+                        />
+                      </div>
+                    ) : (
+                      <h3 className="font-[family-name:var(--font-display)] text-4xl text-[#78350f] mb-2 group-hover:text-[#1a8754] transition-colors">
+                        {platform.name}
+                      </h3>
+                    )}
                     <p className="text-[#78350f]/70">
                       Order for delivery or pickup
                     </p>

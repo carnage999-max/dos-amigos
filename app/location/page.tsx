@@ -57,6 +57,58 @@ export default function LocationPage() {
 
       <WaveDivider color="verde" />
 
+      {/* Restaurant Photos - First */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-12"
+        >
+          <h2 className="font-[family-name:var(--font-display)] text-5xl text-[#78350f] mb-4">
+            VISIT US
+          </h2>
+          <p className="text-[#78350f]/70 text-lg">
+            Find us on Main Street in downtown Pittsfield
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {/* Day Photo */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="group relative h-[400px] rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300"
+          >
+            <Image
+              src="/restaurant-day.png"
+              alt="Dos Amigos Restaurant"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+            />
+          </motion.div>
+
+          {/* Night Photo */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            className="group relative h-[400px] rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300"
+          >
+            <Image
+              src="/restaurant-night.png"
+              alt="Dos Amigos Restaurant at Night"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      <WaveDivider color="amarillo" />
+
       {/* Map and Quick Actions */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -216,80 +268,6 @@ export default function LocationPage() {
         >
           <p>Hours may vary on holidays. Please call ahead to confirm.</p>
         </motion.div>
-      </section>
-
-      <WaveDivider color="amarillo" />
-
-      {/* Restaurant Photos */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="font-[family-name:var(--font-display)] text-5xl text-[#78350f] mb-4">
-            SEE OUR LOCATION
-          </h2>
-          <p className="text-[#78350f]/70 text-lg">
-            Find us on Main Street in downtown Pittsfield
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Day Photo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="group relative h-[400px] rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300"
-          >
-            <Image
-              src="/restaurant-day.png"
-              alt="Dos Amigos Restaurant - Daytime View"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
-              <div className="text-white">
-                <h3 className="font-[family-name:var(--font-display)] text-3xl mb-2">
-                  DAYTIME
-                </h3>
-                <p className="text-white/90">
-                  Bright and welcoming on Main Street
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Night Photo */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="group relative h-[400px] rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300"
-          >
-            <Image
-              src="/restaurant-night.png"
-              alt="Dos Amigos Restaurant - Night View"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
-              <div className="text-white">
-                <h3 className="font-[family-name:var(--font-display)] text-3xl mb-2">
-                  NIGHTTIME
-                </h3>
-                <p className="text-white/90">
-                  Beautifully lit up after dark
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
       </section>
 
       <TextureDivider />
