@@ -4,10 +4,10 @@ export function getRestaurantSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Restaurant",
-    "@id": "https://dosamigosmaine.com/#restaurant",
+    "@id": "https://www.mydosamigos.com/#restaurant",
     name: restaurantInfo.name,
     description: `${restaurantInfo.tagline} - Authentic Mexican cuisine in Pittsfield, Maine`,
-    url: "https://dosamigosmaine.com",
+    url: "https://www.mydosamigos.com",
     telephone: restaurantInfo.phone,
     email: restaurantInfo.email,
     address: {
@@ -27,12 +27,25 @@ export function getRestaurantSchema() {
     priceRange: "$$",
     acceptsReservations: false,
     openingHoursSpecification: Object.entries(restaurantInfo.hours).map(
-      ([day, hours]) => ({
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: day.charAt(0).toUpperCase() + day.slice(1),
-        opens: hours.closed ? undefined : hours.open,
-        closes: hours.closed ? undefined : hours.close,
-      })
+      ([day, hours]) => {
+        // Convert "11:00 AM" to "11:00" and "9:00 PM" to "21:00" for valid Schema
+        const convertTo24Hour = (timeStr?: string) => {
+          if (!timeStr) return undefined;
+          const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
+          if (!match) return timeStr;
+          let [_, hStr, mStr, modifier] = match;
+          let h = parseInt(hStr, 10);
+          if (modifier.toUpperCase() === 'PM' && h < 12) h += 12;
+          if (modifier.toUpperCase() === 'AM' && h === 12) h = 0;
+          return `${h.toString().padStart(2, '0')}:${mStr}`;
+        };
+        return {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: day.charAt(0).toUpperCase() + day.slice(1),
+          opens: hours.closed ? undefined : convertTo24Hour(hours.open),
+          closes: hours.closed ? undefined : convertTo24Hour(hours.close),
+        };
+      }
     ),
   };
 }
@@ -108,9 +121,9 @@ export function getLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://dosamigosmaine.com/#localbusiness",
+    "@id": "https://www.mydosamigos.com/#localbusiness",
     name: restaurantInfo.name,
-    image: "https://dosamigosmaine.com/og-image.png",
+    image: "https://www.mydosamigos.com/og-image.png",
     telephone: restaurantInfo.phone,
     email: restaurantInfo.email,
     address: {
@@ -127,12 +140,24 @@ export function getLocalBusinessSchema() {
       longitude: restaurantInfo.coordinates.lng,
     },
     openingHoursSpecification: Object.entries(restaurantInfo.hours).map(
-      ([day, hours]) => ({
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: day.charAt(0).toUpperCase() + day.slice(1),
-        opens: hours.closed ? undefined : hours.open,
-        closes: hours.closed ? undefined : hours.close,
-      })
+      ([day, hours]) => {
+        const convertTo24Hour = (timeStr?: string) => {
+          if (!timeStr) return undefined;
+          const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
+          if (!match) return timeStr;
+          let [_, hStr, mStr, modifier] = match;
+          let h = parseInt(hStr, 10);
+          if (modifier.toUpperCase() === 'PM' && h < 12) h += 12;
+          if (modifier.toUpperCase() === 'AM' && h === 12) h = 0;
+          return `${h.toString().padStart(2, '0')}:${mStr}`;
+        };
+        return {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: day.charAt(0).toUpperCase() + day.slice(1),
+          opens: hours.closed ? undefined : convertTo24Hour(hours.open),
+          closes: hours.closed ? undefined : convertTo24Hour(hours.close),
+        };
+      }
     ),
   };
 }

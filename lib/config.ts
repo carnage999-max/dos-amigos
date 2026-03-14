@@ -4,7 +4,7 @@ export const restaurantInfo = {
   address: "135 Main St., Pittsfield, ME 04967",
   phone: "+12079478226",
   phoneDisplay: "(207) 947-TACO",
-  email: "info@dosamigosmaine.com",
+  email: "info@mydosamigos.com",
 
   hours: {
     monday: { open: "11:00 AM", close: "9:00 PM", closed: false },
