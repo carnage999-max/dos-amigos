@@ -85,7 +85,7 @@ export default function RootLayout({
         <ComingSoonBanner />
         <Header />
         {children}
-        <Script src="https://now-hiring-eta.vercel.app/widget.js" strategy="afterInteractive" />
+        <Script src="https://now-hiring-eta.vercel.app/widget.js" strategy="afterInteractive" data-icon="pizza" />
         <Footer />
         <FloatingMobileNav />
       </body>
