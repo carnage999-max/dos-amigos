@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail, Facebook, Instagram } from "lucide-react";
 import { restaurantInfo } from "@/lib/config";
+import HiringButton from "./HiringButton";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -28,9 +29,10 @@ export default function Footer() {
                 <p className="text-sm text-cream/70">{restaurantInfo.tagline}</p>
               </div>
             </Link>
-            <p className="text-sm text-cream/80 text-center md:text-left">
+            <p className="text-sm text-cream/80 text-center md:text-left mb-6">
               Bringing authentic Mexican cuisine to Pittsfield, Maine. Opening 2026.
             </p>
+            <HiringButton scale={0.4} />
           </div>
 
           {/* Quick Links */}

@@ -73,6 +73,8 @@ export const metadata: Metadata = {
   },
 };
 
+import HiringButton from "@/components/HiringButton";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -85,7 +87,12 @@ export default function RootLayout({
         <ComingSoonBanner />
         <Header />
         {children}
-        <Script src="https://now-hiring-eta.vercel.app/widget.js" strategy="afterInteractive" data-emoji="🌮" />
+        <Script 
+          src="https://now-hiring-eta.vercel.app/widget.js" 
+          strategy="afterInteractive" 
+          data-manual="true"
+          data-trigger=".taco-hiring-trigger"
+        />
         <Footer />
         <FloatingMobileNav />
       </body>

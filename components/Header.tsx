@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+import HiringButton from "./HiringButton";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -80,16 +81,18 @@ export default function Header() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#dc2626] group-hover:w-full transition-all duration-300" />
             </Link>
           ))}
+          <HiringButton scale={0.22} />
         </nav>
 
         {/* Mobile Menu Button - Hidden on mobile as we use floating nav */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-4">
           <Link
             href="/menu"
             className="text-sm font-bold text-[#1a8754] hover:text-[#dc2626] transition-colors"
           >
             MENU
           </Link>
+          <HiringButton scale={0.18} />
         </div>
       </div>
     </motion.header>
