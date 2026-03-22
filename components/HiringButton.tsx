@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 interface HiringButtonProps {
   className?: string;
@@ -32,56 +31,42 @@ const HiringButton = ({ className = "", scale = 1 }: HiringButtonProps) => {
           cursor: pointer;
           position: relative;
           -webkit-tap-highlight-color: transparent;
+          transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           display: flex;
           align-items: center;
           justify-content: center;
+          transform: scale(${scale});
           transform-origin: center;
+        }
+
+        .taco-btn:hover {
+          transform: scale(${scale * 1.15}) rotate(-2deg);
+        }
+
+        .taco-btn:active {
+          transform: scale(${scale * 0.92});
         }
 
         .taco-image-container {
           position: relative;
           width: 100%;
           height: 100%;
-          filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+          filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+          transition: filter 0.3s ease;
         }
 
-        @keyframes soft-pulse {
-          0% { transform: scale(1); filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15)); }
-          50% { transform: scale(1.05); filter: drop-shadow(0 8px 12px rgba(217, 154, 47, 0.4)); }
-          100% { transform: scale(1); filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15)); }
+        .taco-btn:hover .taco-image-container {
+          filter: drop-shadow(0 8px 12px rgba(217, 154, 47, 0.3));
         }
 
-        @media (hover: hover) {
-          .taco-btn:hover {
-            transform: rotate(-2deg);
-            transition: transform 0.3s ease;
-          }
+        .taco-hiring-trigger {
+          /* This class is used by the widget script globally */
         }
       `}</style>
-      <motion.div 
-        className={`taco-btn-wrapper ${className}`}
-        initial={{ scale: 0, opacity: 0 }}
-        whileInView={{ scale: scale, opacity: 1 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ 
-          type: "spring",
-          stiffness: 260,
-          damping: 20,
-          duration: 0.6 
-        }}
-      >
-        <motion.button
+      <div className={`taco-btn-wrapper ${className}`}>
+        <button
           className="taco-btn taco-hiring-trigger"
           aria-label="Now Hiring taco button"
-          animate={{
-            scale: [1, 1.08, 1],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          whileTap={{ scale: 0.92 }}
         >
           <div className="taco-image-container">
             <Image
@@ -92,8 +77,8 @@ const HiringButton = ({ className = "", scale = 1 }: HiringButtonProps) => {
               priority
             />
           </div>
-        </motion.button>
-      </motion.div>
+        </button>
+      </div>
     </>
   );
 };
