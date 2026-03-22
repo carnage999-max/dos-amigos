@@ -32,7 +32,7 @@ export default function Footer() {
             <p className="text-sm text-cream/80 text-center md:text-left mb-6">
               Bringing authentic Mexican cuisine to Pittsfield, Maine. Opening 2026.
             </p>
-            <HiringButton scale={0.4} />
+            <HiringButton scale={1.5} />
           </div>
 
           {/* Quick Links */}

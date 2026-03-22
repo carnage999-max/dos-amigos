@@ -81,7 +81,7 @@ export default function Header() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#dc2626] group-hover:w-full transition-all duration-300" />
             </Link>
           ))}
-          <HiringButton scale={0.22} />
+          <HiringButton scale={0.65} />
         </nav>
 
         {/* Mobile Menu Button - Hidden on mobile as we use floating nav */}
@@ -92,7 +92,7 @@ export default function Header() {
           >
             MENU
           </Link>
-          <HiringButton scale={0.18} />
+          <HiringButton scale={0.45} />
         </div>
       </div>
     </motion.header>
