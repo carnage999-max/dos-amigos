@@ -29,6 +29,7 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.mydosamigos.com"),
+  manifest: "/manifest.webmanifest",
   title: {
     default: "Dos Amigos - Mexican Food & Cantina | Pittsfield, Maine",
     template: "%s | Dos Amigos - Mexican Food & Cantina",
@@ -70,6 +71,14 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
   },
 };
 
