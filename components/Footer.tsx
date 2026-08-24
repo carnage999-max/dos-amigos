@@ -201,6 +201,18 @@ export default function Footer() {
               Made with ❤️ in Pittsfield, Maine
             </p>
           </div>
+          <p className="text-xs text-cream/40 text-center">
+            Part of the{" "}
+            <a
+              href="https://se7eninc.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-amarillo transition-colors underline"
+            >
+              Se7en
+            </a>{" "}
+            family of companies.
+          </p>
         </div>
       </div>
     </footer>
