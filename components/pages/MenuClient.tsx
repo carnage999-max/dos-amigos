@@ -7,6 +7,7 @@ import Image from "next/image";
 import { menuData } from "@/lib/config";
 import { SlantedDivider, TextureDivider } from "@/components/SectionDivider";
 import StructuredData from "@/components/StructuredData";
+import { MexicanStreetFries, SmashDaddyFeature } from "@/components/FeaturedFood";
 import { getMenuSchema } from "@/lib/structured-data";
 
 export default function MenuClient() {
@@ -58,6 +59,10 @@ export default function MenuClient() {
       </section>
 
       <SlantedDivider direction="right" color="cream" />
+
+      {/* New specialties and their size-based pricing. */}
+      <MexicanStreetFries />
+      <SmashDaddyFeature />
 
       {/* Full Menu Image Section */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
