@@ -26,7 +26,7 @@ export function MexicanStreetFries({preview=false}:Props){
    </div>
    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
     {dishes.map((dish,i)=><motion.article {...reveal} transition={{duration:.4,delay:(i%3)*.06}} key={dish.id} className="bg-white rounded-3xl overflow-hidden border border-[#e8ddcd] shadow-md hover:shadow-xl transition-shadow">
-      <div className="relative bg-[#f5f0e8] aspect-[5/4]"><Image src={dish.image} alt={dish.name+" at Dos Amigos"} fill sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" className="object-contain" /></div>
+      <div className="h-56 sm:h-60 bg-gradient-to-br from-[#f5f0e8] to-[#ebdfce] flex items-center justify-center p-3 sm:p-4"><div className="relative h-full aspect-[4/5] max-w-full overflow-hidden rounded-xl shadow-md"><Image src={dish.image} alt={dish.name+" at Dos Amigos"} fill sizes="(max-width: 640px) 200px, 230px" className="object-contain" /></div></div>
       <div className="p-6">
        <h3 className="font-[family-name:var(--font-display)] text-3xl text-[#1a8754]">{dish.name}</h3>
        <p className="text-[#78350f]/70 text-sm leading-relaxed mt-2 min-h-[44px]">{dish.description}</p>
