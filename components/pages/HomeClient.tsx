@@ -7,6 +7,7 @@ import { MapPin, Phone, ShoppingBag } from "lucide-react";
 import { CurvedDivider, WaveDivider, TextureDivider } from "@/components/SectionDivider";
 import { restaurantInfo, signatureItems } from "@/lib/config";
 import StructuredData from "@/components/StructuredData";
+import { MexicanStreetFries, SmashDaddyFeature } from "@/components/FeaturedFood";
 import { getRestaurantSchema } from "@/lib/structured-data";
 
 export default function HomeClient() {
@@ -223,6 +224,10 @@ export default function HomeClient() {
       </section>
 
       <WaveDivider color="verde" />
+
+      {/* New food showcases follow the existing signature-items section. */}
+      <MexicanStreetFries preview />
+      <SmashDaddyFeature preview />
 
       {/* Local Credibility */}
       <section className="py-20 bg-gradient-to-br from-[#fef9f3] to-[#f5f0e8] px-4 sm:px-6">
