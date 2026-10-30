@@ -1,4 +1,4 @@
-import { restaurantInfo, menuData } from "./config";
+import { restaurantInfo, menuData, specialtyItems } from "./config";
 
 export function getRestaurantSchema() {
   return {
@@ -57,6 +57,19 @@ export function getMenuSchema() {
     name: `${restaurantInfo.name} Menu`,
     description: "Full menu of authentic Mexican cuisine",
     hasMenuSection: [
+      {
+        "@type": "MenuSection",
+        name: "New & Specialty",
+        hasMenuItem: specialtyItems.map((item) => ({
+          "@type": "MenuItem",
+          name: item.name,
+          description: item.description,
+          image: `https://www.mydosamigos.com${item.image}`,
+          ...(item.price
+            ? { offers: { "@type": "Offer", price: item.price.replace("$", ""), priceCurrency: "USD" } }
+            : {}),
+        })),
+      },
       {
         "@type": "MenuSection",
         name: "Á La Carte",
