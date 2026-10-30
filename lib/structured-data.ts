@@ -1,4 +1,5 @@
 import { restaurantInfo, menuData, specialtyItems } from "./config";
+import { streetFries, friesSizes, smashDaddy } from "./featured-menu";
 
 export function getRestaurantSchema() {
   return {
@@ -57,6 +58,28 @@ export function getMenuSchema() {
     name: `${restaurantInfo.name} Menu`,
     description: "Full menu of authentic Mexican cuisine",
     hasMenuSection: [
+      {
+        "@type": "MenuSection",
+        name: "Mexican Street Fries",
+        hasMenuItem: streetFries.flatMap(dish => friesSizes.map((size, i) => ({
+          "@type": "MenuItem",
+          name: `${dish.name} — ${size.label}`,
+          description: `${dish.description} ${size.description} portion (${size.ounces}).`,
+          image: `https://www.mydosamigos.com${dish.image}`,
+          offers: { "@type": "Offer", price: dish.prices[i].toFixed(2), priceCurrency: "USD" },
+        }))),
+      },
+      {
+        "@type": "MenuSection",
+        name: "Featured Burritos",
+        hasMenuItem: [{
+          "@type": "MenuItem",
+          name: smashDaddy.name,
+          description: smashDaddy.description,
+          image: `https://www.mydosamigos.com${smashDaddy.image}`,
+          offers: { "@type": "Offer", price: smashDaddy.price.toFixed(2), priceCurrency: "USD" },
+        }],
+      },
       {
         "@type": "MenuSection",
         name: "New & Specialty",

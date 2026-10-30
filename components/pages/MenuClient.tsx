@@ -7,6 +7,7 @@ import Image from "next/image";
 import { menuData, specialtyItems } from "@/lib/config";
 import { SlantedDivider, TextureDivider } from "@/components/SectionDivider";
 import StructuredData from "@/components/StructuredData";
+import { MexicanStreetFries, SmashDaddyFeature } from "@/components/FeaturedFood";
 import { getMenuSchema } from "@/lib/structured-data";
 
 export default function MenuClient() {
@@ -59,6 +60,10 @@ export default function MenuClient() {
 
       <SlantedDivider direction="right" color="cream" />
 
+      {/* New specialties and their size-based pricing. */}
+      <MexicanStreetFries />
+      <SmashDaddyFeature />
+
       {/* New and specialty items, with photos */}
       <section aria-labelledby="new-items-title" className="max-w-6xl mx-auto px-4 sm:px-6 pt-12">
         <motion.div
@@ -70,9 +75,9 @@ export default function MenuClient() {
             id="new-items-title"
             className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl text-verde mb-3"
           >
-            NEW &amp; SPECIALTY
+            MORE NEW FAVORITES
           </h2>
-          <p className="text-brown/70 text-lg">Fresh on the menu at Dos Amigos</p>
+          <p className="text-brown/70 text-lg">Fajita dippers, fiesta buckets and sweet heat</p>
         </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
