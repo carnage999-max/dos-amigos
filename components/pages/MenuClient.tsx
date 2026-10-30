@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
-import { menuData } from "@/lib/config";
+import { menuData, specialtyItems } from "@/lib/config";
 import { SlantedDivider, TextureDivider } from "@/components/SectionDivider";
 import StructuredData from "@/components/StructuredData";
 import { MexicanStreetFries, SmashDaddyFeature } from "@/components/FeaturedFood";
@@ -63,6 +63,54 @@ export default function MenuClient() {
       {/* New specialties and their size-based pricing. */}
       <MexicanStreetFries />
       <SmashDaddyFeature />
+
+      {/* New and specialty items, with photos */}
+      <section aria-labelledby="new-items-title" className="max-w-6xl mx-auto px-4 sm:px-6 pt-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-10"
+        >
+          <h2
+            id="new-items-title"
+            className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl text-verde mb-3"
+          >
+            MORE NEW FAVORITES
+          </h2>
+          <p className="text-brown/70 text-lg">Fajita dippers, fiesta buckets and sweet heat</p>
+        </motion.div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {specialtyItems.map((item, idx) => (
+            <motion.article
+              key={item.slug}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 + idx * 0.08 }}
+              className="flex flex-col overflow-hidden rounded-3xl border-2 border-[#f5f0e8] bg-white shadow-lg"
+            >
+              <div className="relative aspect-square w-full">
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, 100vw"
+                  className={`object-cover ${item.imagePosition}`}
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <div className="mb-2 flex items-start justify-between gap-3">
+                  <h3 className="text-xl font-bold leading-tight text-[#78350f]">{item.name}</h3>
+                  {item.price ? (
+                    <span className="text-2xl font-bold text-[#dc2626]">{item.price}</span>
+                  ) : null}
+                </div>
+                <p className="text-sm leading-relaxed text-[#78350f]/70">{item.description}</p>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </section>
 
       {/* Full Menu Image Section */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
@@ -138,7 +186,7 @@ export default function MenuClient() {
                     <div className="px-6 py-6 space-y-4">
                       {section.items.map((item: any) => (
                         <div
-                          key={item.number}
+                          key={item.number ?? item.name}
                           className="pb-4 border-b border-[#f5f0e8] last:border-0 last:pb-0"
                         >
                           <div className="flex justify-between items-start mb-2">
@@ -193,7 +241,7 @@ export default function MenuClient() {
               <div className="space-y-6">
                 {section.items.map((item: any) => (
                   <div
-                    key={item.number}
+                    key={item.number ?? item.name}
                     className="group hover:bg-[#fef9f3] p-4 rounded-xl transition-all duration-300 -mx-4"
                   >
                     <div className="flex justify-between items-start mb-2">

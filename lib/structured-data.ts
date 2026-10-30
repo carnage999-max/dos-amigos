@@ -1,4 +1,4 @@
-import { restaurantInfo, menuData } from "./config";
+import { restaurantInfo, menuData, specialtyItems } from "./config";
 import { streetFries, friesSizes, smashDaddy } from "./featured-menu";
 
 export function getRestaurantSchema() {
@@ -79,6 +79,19 @@ export function getMenuSchema() {
           image: `https://www.mydosamigos.com${smashDaddy.image}`,
           offers: { "@type": "Offer", price: smashDaddy.price.toFixed(2), priceCurrency: "USD" },
         }],
+      },
+      {
+        "@type": "MenuSection",
+        name: "New & Specialty",
+        hasMenuItem: specialtyItems.map((item) => ({
+          "@type": "MenuItem",
+          name: item.name,
+          description: item.description,
+          image: `https://www.mydosamigos.com${item.image}`,
+          ...(item.price
+            ? { offers: { "@type": "Offer", price: item.price.replace("$", ""), priceCurrency: "USD" } }
+            : {}),
+        })),
       },
       {
         "@type": "MenuSection",

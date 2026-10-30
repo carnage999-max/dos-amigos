@@ -107,3 +107,47 @@ export const menuData = {
     { number: "7", name: "CHILDREN'S PLATE", price: "$4.99", description: "Beef taco (hard or soft), beans, rice and nacho cheese, less spice" },
   ],
 };
+
+/** New and specialty items, shown with photos at the top of the menu page. */
+export const specialtyItems = [
+  {
+    slug: "fajita-dippers",
+    name: "Dos Amigos Fajita Dippers\u2122",
+    price: "$14.99",
+    description:
+      "Crispy flatbread loaded with seasoned fajita chicken, melted cheese, peppers, diced onions, and our signature sauce. Cut for dipping and served with warm queso and Mexican ranch.",
+    image: "/food/fajitas-dippers.jpeg",
+    alt: "Dos Amigos Fajita Dippers: cut flatbread topped with fajita chicken, peppers and melted cheese, with queso and Mexican ranch for dipping",
+    imagePosition: "object-top",
+  },
+  {
+    slug: "mini-fiesta-bucket",
+    name: "Mini Fiesta Bucket",
+    price: "$8.99",
+    description:
+      "Soft serve piled with churro pieces, sopapilla bites, sauce, cinnamon crunch and whipped cream, served in a keepsake Dos Amigos bucket.",
+    image: "/food/fiesta-bucket.jpeg",
+    alt: "A red Dos Amigos bucket overflowing with soft serve, churro pieces, caramel and chocolate sauce, whipped cream and a cherry",
+    imagePosition: "object-center",
+  },
+  {
+    slug: "grande-fiesta-bucket",
+    name: "Grande Fiesta Bucket",
+    price: "$16.99",
+    description:
+      "The big one for the table: a larger reusable Dos Amigos bucket loaded with soft serve, churros, sopapilla bites, sauces and whipped cream. Made for two to four people to share.",
+    image: "/food/grand-fiesta-bucket.jpeg",
+    alt: "Friends sharing a large red Dos Amigos bucket of soft serve, churros, sauces and whipped cream with spoons",
+    imagePosition: "object-center",
+  },
+  {
+    slug: "jalapeno-sugar-drizzle",
+    name: "Jalape\u00f1o Sugar Drizzle",
+    price: "",
+    description:
+      "Sweet heat makes everything better! Our jalape\u00f1o sugar drizzle, shown here over a Fiesta Bucket.",
+    image: "/food/jalapeno-sugar-drizzle.jpeg",
+    alt: "Bottles of Dos Amigos Jalape\u00f1o Sugar Drizzle, with the sauce being poured over a Fiesta Bucket of soft serve and churros",
+    imagePosition: "object-center",
+  },
+];
